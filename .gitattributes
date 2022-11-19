@@ -1,2 +1,7 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+.meta Text eol=crfl
+.mat Text eol=crfl
+.mat.meta  Text eol=crfl
+.prefab Text eol=crfl
+.prefab.meta Text eol=crfl
