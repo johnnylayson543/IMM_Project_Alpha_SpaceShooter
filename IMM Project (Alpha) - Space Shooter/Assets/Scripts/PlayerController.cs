@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    GameObject player = GameObject.Find("Player");
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetAxis("Horizontal"))
+        {
+            player.transform.rotationAround()
+        }
         
     }
 }
