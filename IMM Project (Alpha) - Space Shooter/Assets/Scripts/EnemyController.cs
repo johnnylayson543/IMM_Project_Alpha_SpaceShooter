@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +23,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         earthDistance = Vector3.Distance(GameObject.Find("Earth").transform.position, transform.position);
         playerDistance = Vector3.Distance(GameObject.Find("Player").transform.position, transform.position);
 
@@ -37,11 +39,10 @@ public class EnemyController : MonoBehaviour
         targetPosition = Vector3.MoveTowards(transform.position, closestObj.transform.position, speed * Time.deltaTime);
         targetDirection = (closestObj.transform.position - transform.position).normalized;
         targetRotation = Quaternion.LookRotation(targetDirection);
-            
+        float closestObjDistance = Vector3.Distance(closestObj.transform.position, transform.position);
+        float speedMultiplier = (float) Math.Log10(Math.Pow(closestObjDistance,1.3f));
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 0.5f);
-
-
-        enemyRb.AddRelativeForce(Vector3.forward * Time.deltaTime * speed * 0.01f, ForceMode.Impulse);
+        enemyRb.AddRelativeForce(Vector3.forward * Time.deltaTime * speed * speedMultiplier, ForceMode.Impulse);
         
 
     }
