@@ -4,45 +4,43 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    private Rigidbody enemyRb;
+    private GameObject closestObj;
     private float speed = 50.0f;
-    private float turnSpeed = 50.0f;
     private float earthDistance;
     private float playerDistance;
-    private Vector3 earthPosition;
-    private Vector3 playerPosition;
-    private Vector3 closestPosition;
+    private Vector3 targetPosition;
     private Vector3 targetDirection;
+    private Quaternion targetRotation;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        enemyRb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        gameObject closestTargetObject;
         earthDistance = Vector3.Distance(GameObject.Find("Earth").transform.position, transform.position);
-        earthPosition = transform.position - GameObject.Find("Earth").transform.position;
-        playerDistance = Vector3.Distance(GameObject.Find("Earth").transform.position, transform.position);
-        playerPosition = transform.position - GameObject.Find("Player").transform.position;
+        playerDistance = Vector3.Distance(GameObject.Find("Player").transform.position, transform.position);
 
         if (playerDistance > earthDistance)
         {
-            closestObject = playerPosition;
+            closestObj = GameObject.Find("Player");
 
         } else if (playerDistance < earthDistance)
         {
-            closestPosition = earthPosition;
-
-
+            closestObj = GameObject.Find("Earth");
         }
 
-        targetPosition = Vector3.MoveTowards(transform.position, closestPosition, speed * Time.deltaTime);
-        targetDirection = Vector3.RotateTowards(transform.forward, closestPosition, speed * Time.deltaTime, 0.0f);
+        targetPosition = Vector3.MoveTowards(transform.position, closestObj.transform.position, speed * Time.deltaTime);
+        targetDirection = (closestObj.transform.position - transform.position).normalized;
+        targetRotation = Quaternion.LookRotation(targetDirection);
+            
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 0.5f);
 
-        toRotation = Quaternion.LookRotation(targetDirection);
+        enemyRb.AddRelativeForce(targetPosition * Time.deltaTime * speed * 0.02f, ForceMode.Impulse);
         
 
     }
