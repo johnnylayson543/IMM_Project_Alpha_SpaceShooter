@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2230009443195110748, guid: 397890a5a98f7e240b98f324a38f3c30, type: 3}
+      propertyPath: m_Constraints
+      value: 84
+      objectReference: {fileID: 0}
     - target: {fileID: 2230009443195510730, guid: 397890a5a98f7e240b98f324a38f3c30, type: 3}
       propertyPath: m_RootOrder
       value: 0
