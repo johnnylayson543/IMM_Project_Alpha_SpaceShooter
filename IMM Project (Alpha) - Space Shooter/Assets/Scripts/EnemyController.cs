@@ -40,7 +40,8 @@ public class EnemyController : MonoBehaviour
             
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 0.5f);
 
-        enemyRb.AddRelativeForce(targetPosition * Time.deltaTime * speed * 0.02f, ForceMode.Impulse);
+
+        enemyRb.AddRelativeForce(Vector3.forward * Time.deltaTime * speed * 0.01f, ForceMode.Impulse);
         
 
     }
