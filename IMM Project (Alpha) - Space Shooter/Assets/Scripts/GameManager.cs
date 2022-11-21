@@ -1,9 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
+// This script manages the main elements of the game such as Start, Restart and GameOver.
 public class GameManager : MonoBehaviour
 {
+
+    // URL String
+    public string URL = "https://github.com/johnnylayson543/IMM_Project_Alpha_SpaceShooter";
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +22,19 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void GoToSpaceShooter0()
+    {
+        SceneManager.LoadScene("SpaceShooter0"); // Go to the main menu 
+    }
+    public void GoToSpaceShooter1()
+    {
+        SceneManager.LoadScene("SpaceShooter1"); // Go to the main game (Play Game)
+    }
+
+    public void loadURL()
+    {
+        Application.OpenURL(URL); // Open the URL which contains the Game Files and Assets from the GitHub Repo
     }
 }
