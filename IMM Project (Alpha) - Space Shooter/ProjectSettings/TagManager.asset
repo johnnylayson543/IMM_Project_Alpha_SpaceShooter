@@ -8,6 +8,8 @@ TagManager:
   - Earth
   - ProjectileLauncher
   - Friendly
+  - PlayerProjectile
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX
