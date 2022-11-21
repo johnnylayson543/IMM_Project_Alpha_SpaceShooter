@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1958897173}
   - component: {fileID: 1958897174}
+  - component: {fileID: 2159939131532084733}
   m_Layer: 0
   m_Name: ProjectilePosition
   m_TagString: Untagged
@@ -48,6 +49,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 10
   m_CollisionDetection: 0
+--- !u!114 &2159939131532084733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958897172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a41177385aec34fbb8c6d055fe89d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 6989644615067733270, guid: 643049e58414133499750117d75ef309, type: 3}
 --- !u!1 &2230009443195077610
 GameObject:
   m_ObjectHideFlags: 0

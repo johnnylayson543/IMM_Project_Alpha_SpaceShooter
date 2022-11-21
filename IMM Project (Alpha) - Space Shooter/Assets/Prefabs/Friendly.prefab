@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2230009443195077610, guid: 397890a5a98f7e240b98f324a38f3c30, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Friendly
       objectReference: {fileID: 0}
     - target: {fileID: 2230009443195510730, guid: 397890a5a98f7e240b98f324a38f3c30, type: 3}
       propertyPath: m_RootOrder
@@ -82,4 +82,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee569ecc1f1168947a1ced1a91d6a8b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 0}

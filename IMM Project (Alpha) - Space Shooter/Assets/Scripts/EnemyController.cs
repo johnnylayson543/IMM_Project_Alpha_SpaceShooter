@@ -13,10 +13,7 @@ public class EnemyController : MonoBehaviour
     private Vector3 targetPosition;
     private Vector3 targetDirection;
     private Quaternion targetRotation;
-    private bool fireProjectile = false;
 
-    // Projectile Properties
-    public GameObject projectilePrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -47,20 +44,7 @@ public class EnemyController : MonoBehaviour
         float speedMultiplier = (float) Math.Log10(Math.Pow(closestObjDistance,1.3f));
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 0.5f);
         enemyRb.AddRelativeForce(Vector3.forward * Time.deltaTime * speed * speedMultiplier, ForceMode.Impulse);
-
         
-         
-        Vector3 playerPosition = (GameObject.Find("Player").transform.position - transform.position)
-        fireProjectile = Vector3.Angle(transform.forward, playerPosition.normalized) < 5.0f;  
-
-        GameObject emptyProjectile = transform.Find("ProjectilePosition").gameObject;
-        // Launch a projectile if Space key is pressed down
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            // Player launches a projectile
-            Instantiate(projectilePrefab, emptyProjectile.transform.position, transform.rotation);
-
-        }
     }
 
     
