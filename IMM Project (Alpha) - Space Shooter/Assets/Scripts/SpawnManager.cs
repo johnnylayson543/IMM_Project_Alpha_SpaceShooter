@@ -45,6 +45,8 @@ public class SpawnManager : MonoBehaviour
     // A private method to Generate Spawn Position
     private Vector3 GenerateSpawnPosition()
     {
+
+        // 
         // Local method variables to set a random range of x or z positions the enemy will spawn in the game
         float spawnPosX = Random.Range(-spawnRange, spawnRange);  
         float spawnPosZ = Random.Range(-spawnRange, spawnRange);  
