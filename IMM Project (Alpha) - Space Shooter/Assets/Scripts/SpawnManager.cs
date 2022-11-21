@@ -8,8 +8,8 @@ public class SpawnManager : MonoBehaviour
     public List<GameObject> enemies;  // Create a list of enemy gameObjects
 
     // Enemy Spawn Properties
-    private float spawnRate = 10.0f; // The rate enemy spawns in the game
-    private float spawnRange = 100.0f; // The range the enemy spawns in the game
+    public float spawnRate = 10.0f; // The rate enemy spawns in the game
+    public float spawnRange = 100.0f; // The range the enemy spawns in the game
 
     // Start is called before the first frame update
     void Start()

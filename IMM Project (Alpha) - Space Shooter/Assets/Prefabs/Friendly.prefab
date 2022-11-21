@@ -13,7 +13,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: aa4f99675c47095458479c73f7eb4724, type: 2}
     - target: {fileID: 2230009443195077610, guid: 397890a5a98f7e240b98f324a38f3c30, type: 3}
       propertyPath: m_Name
-      value: Player
+      value: Friendly
+      objectReference: {fileID: 0}
+    - target: {fileID: 2230009443195077610, guid: 397890a5a98f7e240b98f324a38f3c30, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2230009443195510730, guid: 397890a5a98f7e240b98f324a38f3c30, type: 3}
       propertyPath: m_RootOrder
@@ -78,3 +82,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee569ecc1f1168947a1ced1a91d6a8b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 0}
