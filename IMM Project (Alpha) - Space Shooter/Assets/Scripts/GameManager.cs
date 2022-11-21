@@ -37,4 +37,5 @@ public class GameManager : MonoBehaviour
     {
         Application.OpenURL(URL); // Open the URL which contains the Game Files and Assets from the GitHub Repo
     }
+
 }
