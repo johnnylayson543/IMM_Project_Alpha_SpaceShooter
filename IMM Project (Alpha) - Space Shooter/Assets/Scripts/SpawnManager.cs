@@ -9,7 +9,7 @@ public class SpawnManager : MonoBehaviour
 
     // Enemy Spawn Properties
     public float spawnRate = 10.0f; // The rate enemy spawns in the game
-    public float spawnRange = 100.0f; // The range the enemy spawns in the game
+    public float spawnRange = 1000.0f; // The range the enemy spawns in the game
 
     // Start is called before the first frame update
     void Start()
@@ -48,8 +48,8 @@ public class SpawnManager : MonoBehaviour
 
         // 
         // Local method variables to set a random range of x or z positions the enemy will spawn in the game
-        float spawnPosX = Random.Range(-spawnRange, spawnRange);  
-        float spawnPosZ = Random.Range(-spawnRange, spawnRange);  
+        float spawnPosX = Random.Range(500, spawnRange)*Mathf.Cos(Random.Range(0, 2*Mathf.PI));  
+        float spawnPosZ = Random.Range(500, spawnRange) * Mathf.Sin(Random.Range(0, 2 * Mathf.PI));  
                                
         Vector3 randomPos = new Vector3(spawnPosX, 0, spawnPosZ);  // Add the random range of x and z positions on a new Vector3 to create a new random position
         return randomPos; // Return the value of the new randomPos

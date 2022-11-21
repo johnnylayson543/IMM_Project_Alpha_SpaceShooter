@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
         playerRb.AddRelativeForce(Vector3.forward * Time.deltaTime * speed * forwardInput, ForceMode.Impulse); // Add a relative movement force for the Player
         transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * horizontalInput); // Add a rotation for the Player
 
-        GameObject emptyProjectile = GameObject.Find("ProjectilePosition");
+        GameObject emptyProjectile = transform.Find("ProjectilePosition").gameObject;
         // Launch a projectile if Space key is pressed down
         if (Input.GetKeyDown(KeyCode.Space))  
         {
