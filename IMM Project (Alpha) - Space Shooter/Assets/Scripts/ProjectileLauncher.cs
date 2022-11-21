@@ -6,8 +6,9 @@ public class ProjectileLauncher : MonoBehaviour
 {
     public GameObject projectilePrefab;
     private bool fireProjectile = false;
+    private bool canShoot = true;
     float firingInterval = 1.0f;
-    float firingTimer = 0.0f;
+    private float firingTimer = 0.0f;
     private GameObject targetObj;
 
     // Start is called before the first frame update
@@ -29,9 +30,9 @@ public class ProjectileLauncher : MonoBehaviour
         GameObject parentObj = transform.parent.gameObject;
 
         // assign the target object based on the parent object
-        if (parentName == "Player") {
+        if (parentObj.tag == "Player") {
             targetObj = GameObject.Find("Enemy");
-        } else
+        } else if(parentObj.tag == "Enemy")
         {
             targetObj = GameObject.Find("Player");
         }
@@ -45,8 +46,9 @@ public class ProjectileLauncher : MonoBehaviour
         // -- a player can open fire if they press the spacebar key
         // -- --- but only if the firing interval time is exceeded after the each firing 
         bool fireCondition1 = (parentObj.tag == "Enemy") && (Vector3.Angle(transform.forward, targetPosition.normalized) < 30.0f && Vector3.Distance(transform.position, targetObj.transform.position) < 50.0f);
-        bool fireCondition2 = (parentObj.tag == "Player" && Input.GetKeyDown(KeyCode.Space));
-        fireProjectile = (fireCondition1 || fireCondition2) && (firingTimer > firingInterval || fireProjectile == false) ;
+        bool fireCondition2 = (parentObj.tag == "Player") && (Input.GetKeyDown(KeyCode.Space));
+        fireProjectile = (fireCondition1 || fireCondition2) && (canShoot == true);
+        if(fireProjectile) { canShoot = false; }
 
         // Launch a projectile if Space key is pressed down
         if (fireProjectile)
@@ -62,6 +64,7 @@ public class ProjectileLauncher : MonoBehaviour
         if (firingTimer > firingInterval)
         {
             firingTimer = 0.0f;
+            canShoot = true;
         }
     }
 }
