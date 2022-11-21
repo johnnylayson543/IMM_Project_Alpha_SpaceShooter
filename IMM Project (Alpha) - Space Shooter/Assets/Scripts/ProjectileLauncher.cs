@@ -34,12 +34,16 @@ public class ProjectileLauncher : MonoBehaviour
             targetObj = GameObject.Find("Enemy");
         } else if(parentObj.tag == "Enemy")
         {
-            targetObj = GameObject.Find("Player");
+            if (GameObject.Find("Player")) { targetObj = GameObject.Find("Player"); }
+            else if (GameObject.Find("Earth"))  { targetObj = GameObject.Find("Earth"); }
+            else { targetObj = GameObject.Find("Origin"); }
+        } else
+        { 
         }
 
 
         // find the direction of the target from the current spacecraft
-        Vector3 targetPosition = (GameObject.Find("Player").transform.position - transform.position);
+        Vector3 targetPosition = (this && targetObj) ? (targetObj.transform.position - transform.position) : new Vector3(0,0,0);
 
         // conditions under which a spacecraft can use projectiles i.e. fire their weapons
         // -- an enemy spacecraft may open fire if its target is in view and within range
