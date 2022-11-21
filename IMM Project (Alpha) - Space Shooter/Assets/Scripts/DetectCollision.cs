@@ -6,12 +6,13 @@ using UnityEngine;
 
 public class DetectCollision : MonoBehaviour
 {
-    private string owner;
+    private string owner = "Player";
+    private string target = "Enemy";
 
     // Start is called before the first frame update
     void Start()
     {
-        owner = tag.Substring(0, tag.Length - "projectile".Length);
+        owner = tag.Substring(0, tag.Length - "Projectile".Length);
 
     }
 
@@ -24,8 +25,12 @@ public class DetectCollision : MonoBehaviour
     // Projectile and Enemy Collision Detection
     private void OnTriggerEnter(Collider other)
     {
+        
+        if (owner == "Player") { target = "Enemy"; }
+        else if (owner == "Enemy") { target = "Player"; }
+
         // If the colliding projectile hits an enemy that shares a tag called "Enemy"
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag(target))
         {
             Destroy(gameObject); // Destroy the porjectile gameObject
             Destroy(other.gameObject); // Destroy the other gameObject (the Enemy)
