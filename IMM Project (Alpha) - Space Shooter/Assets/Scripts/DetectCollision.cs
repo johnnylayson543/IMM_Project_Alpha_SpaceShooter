@@ -6,12 +6,13 @@ using UnityEngine;
 
 public class DetectCollision : MonoBehaviour
 {
-    string owner = tag.Substring(0, tag.Length - "projectile".Length);
+    private string owner;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        owner = tag.Substring(0, tag.Length - "projectile".Length);
+
     }
 
     // Update is called once per frame
